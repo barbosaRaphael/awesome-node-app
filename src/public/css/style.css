@@ -51,7 +51,6 @@ body {
 .navbar {
   display: flex;
   flex-direction: row;
-  background-color: #7ed7c1;
   height: 100px;
   align-items: center;
   justify-content: start;
@@ -62,15 +61,15 @@ body {
   margin-right: 10px;
   text-decoration: none;
   font-size: 1.5rem;
-  color: #b06161;
+  color: #8f6d24;
   border-bottom: 10px solid transparent;
   transition: all 0.1s ease-in-out;
 }
 
 .navbar-item:hover {
-  color: #dc8686;
+  color: #dba737;
   transition: color 0.2s;
-  border-bottom: 10px solid #dc8686;
+  border-bottom: 10px solid #dba737;
 }
 
 .logo {
@@ -79,18 +78,24 @@ body {
   margin-left: 20px;
   margin-right: 10px;
   text-decoration: none;
-  color: #b06161;
+  color: #8f6d24;
   border-bottom: 10px solid transparent;
   transition: all 0.1s ease-in-out;
 }
 
 .logo:hover {
-  color: #dc8686;
+  color: #dba737;
   transition: color 0.2s;
 }
 
+#logo-image {
+  margin-left: 50px;
+  margin-bottom: 20px;
+}
+
 .footer {
-  background-color: #dc8686;
+  background-color: #57441c;
+  color: #f0dbaf;
   position: absolute;
   bottom: 0;
   flex-direction: column;

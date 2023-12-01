@@ -2,6 +2,7 @@ const express = require('express')
 require('dotenv').config()
 const mongoose = require('mongoose')
 const arRoutes = require('./src/routes/article-routes.ts')
+const authRoutes = require('./src/routes/auth-routes.ts')
 const appController = require('./src/controllers/app-controller.ts')
 
 // App configs
@@ -30,6 +31,7 @@ app.set('views', 'src/views')
 
 app.use(express.static(__dirname + '/src/public'))
 app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
 
 //  App routes
 app.get('/', appController.index)
@@ -37,6 +39,11 @@ app.get('/about', appController.about)
 
 // Article routes
 app.use('/articles', arRoutes)
+
+// Auth routes
+app.use('/auth', authRoutes)
+
+// 404
 app.use(appController.notFound)
 
 // App init
