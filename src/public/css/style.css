@@ -119,19 +119,32 @@ body {
   margin-bottom: 25px;
   width: 70%;
   height: 50px;
-  background-color: transparent;
-  border-radius: 15px;
-  border: 5px solid #57441c;
-  font-size: 22px;
+  background-color: #fff8dc;
+  border-radius: 2px;
+  border: 1px solid #57441c;
+  font-size: 20px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
 
 .form-input:focus {
-  outline: 1px solid #dba737;
+  outline: 2px solid #dba737;
 }
 
 div.form-input {
   display: inline-block;
   min-height: 200px;
   height: fit-content;
+  width: 100%;
+}
+
+#title {
+  align-self: self-start;
+}
+
+#snippet {
+  align-self: self-start;
+}
+
+label {
+  align-self: self-start;
 }
