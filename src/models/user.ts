@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const validator = require('validator')
+const bcrypt = require('bcrypt')
 
 const userSchema = new Schema(
   {
@@ -16,7 +17,7 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: [true, 'Password is required'],
-      minLength: [8, 'The password must have at least 8 characters in length'],
+      minlength: [8, 'The password must have at least 8 characters in length'],
     },
     name: {
       type: String,
@@ -26,6 +27,13 @@ const userSchema = new Schema(
   },
   { timestamps: true }
 )
+
+// Hashing hook
+userSchema.pre('save', async function (next) {
+  const salt = await bcrypt.genSalt()
+  this.password = await bcrypt.hash(this.password, salt)
+  next()
+})
 
 const User = mongoose.model('user', userSchema)
 

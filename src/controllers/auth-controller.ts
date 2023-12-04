@@ -1,5 +1,9 @@
 const User = require('../models/user.ts')
 
+const errorHandler = (err) => {
+  console.log(err.message, err.code)
+}
+
 const getSignUp = (req, res) => {
   res.render('auth/signup', { title: 'Sign Up' })
 }
@@ -13,7 +17,6 @@ const postSignUp = async (req, res) => {
       .save()
       .then((result) => {
         res.status(201).send(`User '${name}' signed up`)
-        res.redirect('/')
       })
       .catch((err) => {
         console.log(err)

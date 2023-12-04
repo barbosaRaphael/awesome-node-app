@@ -8,10 +8,10 @@
       <h2>Use the form below to create new content for the website.</h2>
     </div>
     <div class="content">
-      <form class="ar-form" action="/articles/add-article" method="post">
+      <form class="form ar-form" action="/articles/add-article" method="post">
         <label for="title">Article Title:</label>
         <input
-          class="ar-form-input"
+          class="form-input ar-form-input"
           type="text"
           id="title"
           name="title"
@@ -19,19 +19,20 @@
         />
         <label for="snippet">Snippet:</label>
         <input
-          class="ar-form-input"
+          class="form-input ar-form-input"
           type="text"
           id="snippet"
           name="snippet"
           required
         />
         <label for="body">Content body:</label>
-        <textarea
-          class="ar-form-input"
+        <div
+          contenteditable="true"
+          class="form-input ar-form-input"
           id="body"
           required
           name="body"
-        ></textarea>
+        ></div>
         <button>Submit</button>
       </form>
     </div>
