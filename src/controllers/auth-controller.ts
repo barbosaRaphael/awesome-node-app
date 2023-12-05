@@ -2,13 +2,30 @@ const User = require('../models/user.ts')
 const jwt = require('jsonwebtoken')
 
 const errorHandler = (err) => {
-  console.log(Object.values(err.errors))
+  console.log(err)
 
-  let errors = { email: '', password: '' }
+  let errors = { email: '', password: '', name: '', other: '' }
   if (err.message.includes('user validation failed')) {
-    Object.values(err.errors).forEach((error: any) => {
-      errors[error.properties.path] = error.properties.message
-    })
+    if (err.errors) {
+      Object.values(err.errors).forEach((error: any) => {
+        errors[error.properties.path] = error.properties.message
+      })
+    }
+  }
+
+  // Email already exists
+  if (
+    err.message.includes(
+      'duplicate key error collection: node-practice.users index: email_1 dup key:'
+    )
+  ) {
+    errors.email = 'The email submited is already registered'
+  } else if (
+    err.message.includes(
+      'duplicate key error collection: node-practice.users index: name_1 dup key:'
+    )
+  ) {
+    errors.name = 'The name provided is already registered'
   }
 
   return errors

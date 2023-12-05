@@ -36,8 +36,10 @@
           name="name"
           required
         ></input>
-        <!-- <div class="error-alert"> An error has occurred!!</div> -->
 
+        <% if(errors.name){ %>
+        <div class="error-alert"><%= errors.name %></div>
+        <% } %>
         <button class="submit-btn">Submit</button>
       </form>
     </div>
