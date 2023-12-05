@@ -8,7 +8,38 @@
       <h2>please fill the form below to create a new account</h2>
     </div>
     <div class="content">
-      <p>test</p>
+      <form class="form ar-form" action="/auth/signup" method="post">
+        <label for="email">Email</label>
+        <input
+          class="form-input ar-form-input email-input"
+          type="text"
+          name="email"
+          required
+        />
+        <% if(errors.email) { %>
+        <div class="error-alert"><%= errors.email %></div>
+        <% } %>
+        <label for="password">Password</label>
+        <input
+          class="form-input ar-form-input password-input"
+          type="password"
+          name="password"
+          required
+        />
+        <% if(errors.password){ %>
+        <div class="error-alert"><%= errors.password %></div>
+        <% } %>
+        <label for="name">Name</label>
+        <input
+          class="form-input ar-form-input name-input"
+          type="text"
+          name="name"
+          required
+        ></input>
+        <!-- <div class="error-alert"> An error has occurred!!</div> -->
+
+        <button class="submit-btn">Submit</button>
+      </form>
     </div>
     <%- include('../partials/footer.ejs') %>
   </body>

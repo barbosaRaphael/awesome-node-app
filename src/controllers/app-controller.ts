@@ -4,7 +4,7 @@ const index = (req, res) => {
   Article.find()
     .sort({ createdAt: -1 })
     .then((result) => {
-      res.render('index', { title: 'Amazing Node App', articles: result })
+      res.render('index', { title: 'Home - Latte Journal', articles: result })
     })
     .catch((err) => {
       console.log(err)

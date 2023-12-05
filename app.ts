@@ -1,8 +1,15 @@
 const express = require('express')
-require('dotenv').config()
+
+// Middleware
 const mongoose = require('mongoose')
+require('dotenv').config()
+const cookieParser = require('cookie-parser')
+
+// Routes
 const arRoutes = require('./src/routes/article-routes.ts')
 const authRoutes = require('./src/routes/auth-routes.ts')
+
+//Controllers
 const appController = require('./src/controllers/app-controller.ts')
 
 // App configs
@@ -25,13 +32,16 @@ mongoose
     console.log(err)
   })
 
-//View engine
+//  View engine
 app.set('view engine', 'ejs')
 app.set('views', 'src/views')
 
 app.use(express.static(__dirname + '/src/public'))
+
+//  Middleware
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+app.use(cookieParser())
 
 //  App routes
 app.get('/', appController.index)
