@@ -5,6 +5,8 @@ const errorHandler = (err) => {
   console.log(err)
 
   let errors = { email: '', password: '', name: '', other: '' }
+
+  //  Sign up validation erros
   if (err.message.includes('user validation failed')) {
     if (err.errors) {
       Object.values(err.errors).forEach((error: any) => {
@@ -13,7 +15,7 @@ const errorHandler = (err) => {
     }
   }
 
-  // Email already exists
+  // Sign up duplicate cases
   if (
     err.message.includes(
       'duplicate key error collection: node-practice.users index: email_1 dup key:'
@@ -26,6 +28,14 @@ const errorHandler = (err) => {
     )
   ) {
     errors.name = 'The name provided is already registered'
+  }
+
+  // Login Errors
+  if (err.message.includes('Incorrect Password!')) {
+    errors.email = err.message
+  }
+  if (err.message.includes('Incorrect Password!')) {
+    errors.email = err.message
   }
 
   return errors
@@ -68,7 +78,27 @@ const postSignUp = async (req, res) => {
   }
 }
 
+const getLogin = (req, res) => {
+  res.render('auth/login', { title: 'Log in', errors: [] })
+}
+
+const postLogin = async (req, res) => {
+  const { email, password } = req.body
+  try {
+    const user = await User.login(email, password)
+    if (user) {
+      console.log('logged in')
+      res.status(200).send(user)
+    }
+  } catch (err) {
+    console.log(err)
+    res.status(400).send(err)
+  }
+}
+
 module.exports = {
   getSignUp,
   postSignUp,
+  getLogin,
+  postLogin,
 }
