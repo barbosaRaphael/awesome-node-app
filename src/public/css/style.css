@@ -72,6 +72,14 @@ body {
   border-bottom: 10px solid #dba737;
 }
 
+.navbar-item-inactive {
+  margin-left: 20px;
+  margin-right: 10px;
+  text-decoration: none;
+  color: #8f6d24;
+  border-bottom: 10px solid transparent;
+}
+
 .logo {
   font-size: 2.5rem;
   font-family: 'Pacifico', cursive;

@@ -31,11 +31,13 @@ const errorHandler = (err) => {
   }
 
   // Login Errors
-  if (err.message.includes('Incorrect Password!')) {
+  if (
+    err.message.includes("The email provided is incorrect or isn't registered")
+  ) {
     errors.email = err.message
   }
   if (err.message.includes('Incorrect Password!')) {
-    errors.email = err.message
+    errors.password = err.message
   }
 
   return errors
@@ -87,13 +89,23 @@ const postLogin = async (req, res) => {
   try {
     const user = await User.login(email, password)
     if (user) {
+      const token = createToken(user._id)
+      res.cookie('jwt', token, {
+        httpOnly: true,
+        maxAge: parseInt(process.env.EXPIRATION_TOKEN) * 1000,
+      })
       console.log('logged in')
-      res.status(200).send(user)
+      res.status(201).redirect('/')
     }
   } catch (err) {
-    console.log(err)
-    res.status(400).send(err)
+    const errors = errorHandler(err)
+    res.render('auth/login', { title: 'Log in', errors })
   }
+}
+
+const getLogout = async (req, res) => {
+  res.cookie('jwt', '', { maxAge: 1 })
+  res.redirect('/')
 }
 
 module.exports = {
@@ -101,4 +113,5 @@ module.exports = {
   postSignUp,
   getLogin,
   postLogin,
+  getLogout,
 }

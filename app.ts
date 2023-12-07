@@ -4,6 +4,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 require('dotenv').config()
 const cookieParser = require('cookie-parser')
+const auth = require('./src/middlewares/auth-middleware.ts')
 
 // Routes
 const arRoutes = require('./src/routes/article-routes.ts')
@@ -42,6 +43,7 @@ app.use(express.static(__dirname + '/src/public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(cookieParser())
+app.get('*', auth.getUserLocal)
 
 //  App routes
 app.get('/', appController.index)
