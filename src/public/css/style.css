@@ -146,6 +146,22 @@ div.form-input {
   width: 100%;
 }
 
+.ar-form-textarea {
+  padding-left: 25px;
+  margin-bottom: 25px;
+  background-color: #fff8dc;
+  border-radius: 2px;
+  border: 1px solid #57441c;
+  font-size: 20px;
+  font-weight: 50;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  min-height: 20%;
+}
+
+.ar-form-textarea:focus {
+  outline: 2px solid #dba737;
+}
+
 #title {
   align-self: self-start;
 }

@@ -12,7 +12,6 @@ const isAuth = (req, res, next) => {
         console.log(err.message)
         req.redirect('/auth/login')
       } else {
-        console.log(decodedToken)
         next()
       }
     })

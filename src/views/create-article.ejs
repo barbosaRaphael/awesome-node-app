@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <%- include('./partials/head.ejs') %>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css"
+  />
+  <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
   <body>
     <%- include('./partials/navbar.ejs') %>
     <div class="header">
@@ -26,14 +31,21 @@
           required
         />
         <label for="body">Content body:</label>
-        <div
-          contenteditable="true"
-          class="form-input ar-form-input"
+        <textarea
+          class="ar-form-textarea"
           id="body"
-          required
           name="body"
-        ></div>
-        <button class="submit-btn">Submit</button>
+          required
+        ></textarea>
+        <script>
+          const easyMDE = new EasyMDE({
+            element: document.getElementById('body'),
+            autofocus: true,
+            forceSync: true,
+            previewImagesInEditor: true,
+          })
+        </script>
+        <button type="submit" class="submit-btn">Submit</button>
       </form>
     </div>
     <%- include('./partials/footer.ejs') %>
