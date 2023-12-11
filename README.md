@@ -68,10 +68,10 @@ That's it, very simple and easy, feel free to experiment play with it as much as
 Big thanks to the developers of the software below that allow this to function
 
 - [Node.js](https://nodejs.org/)
-  [ExpressJs](https://expressjs.com/)
-  [Mongoose](https://mongoosejs.com/)
-  [Easy Markdown Editor](https://github.com/Ionaru/easy-markdown-editor)
-  [Marked - markdown parser](https://github.com/markedjs/marked)
+- [ExpressJs](https://expressjs.com/)
+- [Mongoose](https://mongoosejs.com/)
+- [Easy Markdown Editor](https://github.com/Ionaru/easy-markdown-editor)
+- [Marked - markdown parser](https://github.com/markedjs/marked)
 
 ## License
 
