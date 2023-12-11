@@ -31,12 +31,14 @@
           required
         />
         <label for="body">Content body:</label>
-        <textarea
-          class="ar-form-textarea"
-          id="body"
-          name="body"
-          required
-        ></textarea>
+        <div class="md-editor-container">
+          <textarea
+            class="ar-form-textarea"
+            id="body"
+            name="body"
+            required
+          ></textarea>
+        </div>
         <script>
           const easyMDE = new EasyMDE({
             element: document.getElementById('body'),

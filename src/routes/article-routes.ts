@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const articleController = require('../controllers/article-controller.ts')
+const articleController = require('../controllers/article-controller')
 const { isAuth } = require('../middlewares/auth-middleware')
 
 router.post('/add-article', articleController.addArticle)

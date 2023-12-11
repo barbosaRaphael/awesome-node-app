@@ -1,4 +1,4 @@
-const Article = require('../models/articles.ts')
+const Article = require('../models/articles')
 
 const addArticle = (req, res) => {
   const article = new Article(req.body)

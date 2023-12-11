@@ -4,14 +4,14 @@ const express = require('express')
 const mongoose = require('mongoose')
 require('dotenv').config()
 const cookieParser = require('cookie-parser')
-const auth = require('./src/middlewares/auth-middleware.ts')
+const auth = require('./src/middlewares/auth-middleware')
 
 // Routes
-const arRoutes = require('./src/routes/article-routes.ts')
-const authRoutes = require('./src/routes/auth-routes.ts')
+const arRoutes = require('./src/routes/article-routes')
+const authRoutes = require('./src/routes/auth-routes')
 
 //Controllers
-const appController = require('./src/controllers/app-controller.ts')
+const appController = require('./src/controllers/app-controller')
 
 // App configs
 const app = express()

@@ -162,6 +162,14 @@ div.form-input {
   outline: 2px solid #dba737;
 }
 
+#ar-content img {
+  width: 40%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
 #title {
   align-self: self-start;
 }
@@ -198,4 +206,8 @@ label {
   border-top: 10px solid #57441c;
   border-bottom: 2px solid #57441c;
   transition: all 0.1s;
+}
+
+.md-editor-container {
+  width: 100%;
 }

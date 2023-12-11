@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
   <%- include('./partials/head.ejs') %>
   <body>
     <%- include('./partials/navbar.ejs') %>
@@ -9,8 +11,15 @@
     </div>
     <div class="content">
       <div class="ar-detail">
-        <p><%= article.body %></p>
+        <p id="ar-content"><%= article.body %></p>
       </div>
+
+      <script>
+        el = document.getElementById('ar-content')
+        let content = el.innerHTML
+        el.innerHTML = marked.parse(content)
+      </script>
+
       <a class="delete" data-doc="<%= article.id %>">Delete article</a>
     </div>
     <%- include('./partials/footer.ejs') %>

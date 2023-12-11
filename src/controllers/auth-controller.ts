@@ -1,4 +1,4 @@
-const User = require('../models/user.ts')
+const User = require('../models/user')
 const jwt = require('jsonwebtoken')
 
 const errorHandler = (err) => {
@@ -94,7 +94,6 @@ const postLogin = async (req, res) => {
         httpOnly: true,
         maxAge: parseInt(process.env.EXPIRATION_TOKEN) * 1000,
       })
-      console.log('logged in')
       res.status(201).redirect('/')
     }
   } catch (err) {

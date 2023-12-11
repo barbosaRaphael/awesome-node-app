@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const User = require('../models/user.ts')
+const User = require('../models/user')
 
 const isAuth = (req, res, next) => {
   // Checks token authenticity and validates
@@ -21,7 +21,7 @@ const isAuth = (req, res, next) => {
 }
 
 const getUserLocal = (req, res, next) => {
-  // Checks token authenticity and validates
+  // Verify the token on every request
 
   const token = req.cookies.jwt
 
