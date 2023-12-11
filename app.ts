@@ -37,7 +37,7 @@ mongoose
 app.set('view engine', 'ejs')
 app.set('views', 'src/views')
 
-app.use(express.static(__dirname + '/src/public'))
+app.use(express.static(__dirname + '../../src/public'))
 
 //  Middleware
 app.use(express.urlencoded({ extended: true }))
