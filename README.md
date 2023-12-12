@@ -30,7 +30,7 @@ Install the dependencies.
 Setup environment variables, create a **.env** file in the root directory, the same directory where app.ts is located.
 You should not, under any circumstances, push any of the info below to a public repository.
 
-    APP_PORT=3000    #Chose the port the app will listen to
+    APP_PORT=3000    #Choose the port the app will listen to
 
     DB_LOGIN=user    #mongodb user login
 
@@ -54,12 +54,12 @@ The typescript compiler will do it's job and you have a new great blog running!
 
 For development, i recomend using nodemon
 
-    npx nodemon app.ts
+    npm run dev
 
-It will detect any changes on the project files and restart the server automatically, saving a lot of time during development.
+Nodemon will detect any changes on the project files and restart the server automatically, saving a lot of time during development.
 Remember to change the path serving the public directory for nodemon to be able to detect static files
 
-    app.use(express.static(__dirname  +  '../../src/public'))  >  app.use(express.static(__dirname  +  './src/public'))
+    app.use(express.static(__dirname  +  '../../src/public'))  >  app.use(express.static(__dirname  +  '/src/public'))
 
 That's it, very simple and easy, feel free to experiment play with it as much as you want. Check out the live demo if you want to see it working live.
 

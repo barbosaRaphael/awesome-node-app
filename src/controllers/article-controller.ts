@@ -1,7 +1,15 @@
 const Article = require('../models/articles')
+const auth = require('../middlewares/auth-middleware')
 
-const addArticle = (req, res) => {
-  const article = new Article(req.body)
+const addArticle = async (req, res) => {
+  const articleContent = await {
+    author: req.user.name,
+    title: req.body.title,
+    snippet: req.body.snippet,
+    body: req.body.body,
+  }
+
+  const article = await new Article(articleContent)
   article
     .save()
     .then((result) => {
@@ -18,9 +26,22 @@ const createArticle = (req, res) => {
 
 const deleteArticle = (req, res) => {
   const id: string = req.params.id
-  Article.findByIdAndDelete(id)
-    .then((result) => {
-      res.json({ redirect: '/' })
+
+  const name = req.user.name
+  Article.findById(id)
+    .then((article) => {
+      console.log(article.author, name)
+      if (article.author === name) {
+        Article.findByIdAndDelete(id)
+          .then((result) => {
+            res.json({ redirect: '/' })
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+      } else {
+        throw Error('Not authorized')
+      }
     })
     .catch((err) => {
       console.log(err)

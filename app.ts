@@ -22,7 +22,8 @@ const dbLogin: string = process.env.DB_LOGIN
 const dbpassword: string = process.env.DB_PASSWORD
 const dbCollection: string = process.env.DB_COLLECTION
 const database: string = process.env.DB_MAIN
-const dbURI: string = `mongodb+srv://${dbLogin}:${dbpassword}@${database}.xsrxyjs.mongodb.net/${dbCollection}?retryWrites=true&w=majority`
+const urikey: string = process.env.URI_DB_ACCESS_KEY
+const dbURI: string = `mongodb+srv://${dbLogin}:${dbpassword}@${database}.${urikey}.mongodb.net/${dbCollection}?retryWrites=true&w=majority`
 
 mongoose
   .connect(dbURI)
@@ -37,13 +38,13 @@ mongoose
 app.set('view engine', 'ejs')
 app.set('views', 'src/views')
 
-app.use(express.static(__dirname + '../../src/public'))
+app.use(express.static(__dirname + '/src/public'))
 
 //  Middleware
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(cookieParser())
-app.get('*', auth.getUserLocal)
+app.get('*', auth.attachUserLocal)
 
 //  App routes
 app.get('/', appController.index)

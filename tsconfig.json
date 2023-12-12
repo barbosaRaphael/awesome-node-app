@@ -4,7 +4,6 @@
     "moduleResolution": "nodenext",
     "esModuleInterop": true,
     "target": "esnext",
-    "sourceMap": true,
     "verbatimModuleSyntax": true,
     "outDir": "dist"
   },

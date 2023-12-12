@@ -20,7 +20,7 @@ const isAuth = (req, res, next) => {
   }
 }
 
-const getUserLocal = (req, res, next) => {
+const attachUserLocal = (req, res, next) => {
   // Verify the token on every request
 
   const token = req.cookies.jwt
@@ -43,4 +43,22 @@ const getUserLocal = (req, res, next) => {
   }
 }
 
-module.exports = { isAuth, getUserLocal }
+const attachCurrentUser = (req, res, next) => {
+  const token = req.cookies.jwt
+
+  if (token) {
+    jwt.verify(token, process.env.SECRET_TOKEN, async (err, decodedToken) => {
+      if (err) {
+        console.log(err.message)
+      } else {
+        let user = await User.findById(decodedToken.id)
+        req.user = { name: user.name, email: user.email }
+        return next()
+      }
+    })
+  } else {
+    next()
+  }
+}
+
+module.exports = { isAuth, attachUserLocal, attachCurrentUser }

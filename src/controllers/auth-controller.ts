@@ -70,12 +70,10 @@ const postSignUp = async (req, res) => {
       })
       .catch((err) => {
         const errors = errorHandler(err)
-        //res.status(400).json({ errors })
         res.render('auth/signup', { title: 'Sign Up', errors })
       })
   } catch (err) {
     const errors = errorHandler(err)
-    //res.status(400).json({ errors })
     res.render('auth/signup', { title: 'Sign Up', errors })
   }
 }

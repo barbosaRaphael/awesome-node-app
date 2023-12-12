@@ -50,6 +50,15 @@ userSchema.statics.login = async function (email, password) {
   throw Error("The email provided is incorrect or isn't registered")
 }
 
+userSchema.statics.getUser = async function (id: string) {
+  const user = await this.findById(id)
+  if (user) {
+    return { name: user.name, email: user.email }
+  } else {
+    throw Error('User not found')
+  }
+}
+
 const User = mongoose.model('user', userSchema)
 
 module.exports = User
