@@ -32,6 +32,8 @@ You should not, under any circumstances, push any of the info below to a public 
 
     APP_PORT=3000    #Choose the port the app will listen to
 
+    URI_DB_ACCESS_KEY=db-access-key    #mongodb+srv://<username>:<password>@<db-main>.<db-access-key>.mongodb.net/?retryWrites=true&w=majority
+
     DB_LOGIN=user    #mongodb user login
 
     DB_PASSWORD=password     #user password
