@@ -4,8 +4,10 @@
     "moduleResolution": "nodenext",
     "esModuleInterop": true,
     "target": "esnext",
-    "verbatimModuleSyntax": true,
-    "outDir": "dist"
+    "verbatimModuleSyntax": false,
+    "outDir": "dist",
+    "typeRoots": ["./types", "../../node_modules/@types"]
   },
-  "lib": ["nodenext"]
+  "lib": ["es6"],
+  "exclude": ["node_modules", "tests"]
 }

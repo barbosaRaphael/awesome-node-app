@@ -1,4 +1,4 @@
-const express = require('express')
+import express from 'express'
 
 // Middleware
 const mongoose = require('mongoose')
@@ -38,7 +38,7 @@ mongoose
 app.set('view engine', 'ejs')
 app.set('views', 'src/views')
 
-app.use(express.static(__dirname + '../../src/public'))
+app.use(express.static(__dirname + '/src/public'))
 
 //  Middleware
 app.use(express.urlencoded({ extended: true }))
@@ -59,6 +59,10 @@ app.use('/auth', authRoutes)
 // 404
 app.use(appController.notFound)
 
-// App init
-app.listen(port)
-console.log(`Server running at port ${port}`)
+//  Tests
+
+app.get('/test', (req, res) => {
+  res.send('ok')
+})
+
+export default app

@@ -50,7 +50,7 @@ Make sure you have `users` and `articles` as collections on your db, and remembe
 
 All set, now spin up the server
 
-    npm run start
+    npm start
 
 The typescript compiler will do it's job and you have a new great blog running!
 
