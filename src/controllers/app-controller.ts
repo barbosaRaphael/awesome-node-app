@@ -1,10 +1,13 @@
-const Article = require('../models/articles')
+/* const Article = require('../models/articles') */
+import Article from '../models/articles'
 
 const index = (req, res) => {
   Article.find()
     .sort({ createdAt: -1 })
     .then((result) => {
-      res.render('index', { title: 'Home - Latte Journal', articles: result })
+      res
+        .status(200)
+        .render('index', { title: 'Home - Latte Journal', articles: result })
     })
     .catch((err) => {
       console.log(err)
@@ -12,7 +15,7 @@ const index = (req, res) => {
 }
 
 const about = (req, res) => {
-  res.render('about', { title: 'About us' })
+  res.status(200).render('about', { title: 'About us' })
 }
 
 const notFound = (req, res) => {

@@ -62,7 +62,7 @@ app.use(appController.notFound)
 //  Tests
 
 app.get('/test', (req, res) => {
-  res.send('ok')
+  res.status(200).send('ok')
 })
 
 export default app

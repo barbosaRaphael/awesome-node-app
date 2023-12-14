@@ -1,4 +1,5 @@
-const Article = require('../models/articles')
+/* const Article = require('../models/articles') */
+import Article from '../models/articles'
 const auth = require('../middlewares/auth-middleware')
 
 const addArticle = async (req, res) => {
