@@ -1,5 +1,7 @@
 import app from './app'
+require('dotenv').config()
 
 //  app init
-app.listen(3000)
-console.log(`Server running at port ${3000}`)
+const port: Number = parseInt(process.env.APP_PORT, 10)
+app.listen(port)
+console.log(`Server running at port ${port}`)

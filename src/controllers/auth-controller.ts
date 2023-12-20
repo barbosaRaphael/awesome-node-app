@@ -1,5 +1,5 @@
-const User = require('../models/user')
-const jwt = require('jsonwebtoken')
+import User from '../models/user'
+import jwt from 'jsonwebtoken'
 
 const errorHandler = (err) => {
   console.log(err)
@@ -105,7 +105,7 @@ const getLogout = async (req, res) => {
   res.redirect('/')
 }
 
-module.exports = {
+export {
   getSignUp,
   postSignUp,
   getLogin,

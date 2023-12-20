@@ -3,19 +3,18 @@ import express from 'express'
 // Middleware
 const mongoose = require('mongoose')
 require('dotenv').config()
-const cookieParser = require('cookie-parser')
-const auth = require('./src/middlewares/auth-middleware')
+import cookieParser from 'cookie-parser'
+import {attachUserLocal} from './src/middlewares/auth-middleware'
 
 // Routes
-const arRoutes = require('./src/routes/article-routes')
-const authRoutes = require('./src/routes/auth-routes')
+import arRoutes from './src/routes/article-routes'
+import authRoutes from './src/routes/auth-routes'
 
 //Controllers
-const appController = require('./src/controllers/app-controller')
+import appController from './src/controllers/app-controller'
 
 // App configs
 const app = express()
-const port: Number = parseInt(process.env.APP_PORT, 10)
 
 // DB setup
 const dbLogin: string = process.env.DB_LOGIN
@@ -44,25 +43,15 @@ app.use(express.static(__dirname + '/src/public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(cookieParser())
-app.get('*', auth.attachUserLocal)
+app.get('*', attachUserLocal)
 
-//  App routes
+//  Routes
 app.get('/', appController.index)
 app.get('/about', appController.about)
-
-// Article routes
-app.use('/articles', arRoutes)
-
-// Auth routes
+app.use('/article', arRoutes)
 app.use('/auth', authRoutes)
 
 // 404
 app.use(appController.notFound)
-
-//  Tests
-
-app.get('/test', (req, res) => {
-  res.status(200).send('ok')
-})
 
 export default app

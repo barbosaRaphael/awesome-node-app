@@ -4,7 +4,7 @@
   "description": "Small node backend (Blog style app) for study and experimentation",
   "main": "dist/app.js",
   "scripts": {
-    "test": "jest --watchAll --verbose --coverage",
+    "test": "jest --watchAll --verbose",
     "start": "npx tsc && node dist/server.js",
     "dev": "npx nodemon server.ts"
   },

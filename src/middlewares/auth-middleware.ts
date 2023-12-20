@@ -1,5 +1,5 @@
-import jwt from 'jsonwebtoken'
-const User = require('../models/user')
+import * as jwt from 'jsonwebtoken'
+import User from '../models/user'
 
 const isAuth = (req, res, next) => {
   // Checks token authenticity and validates
@@ -61,4 +61,8 @@ const attachCurrentUser = (req, res, next) => {
   }
 }
 
-module.exports = { isAuth, attachUserLocal, attachCurrentUser }
+export {
+  isAuth,
+  attachUserLocal,
+  attachCurrentUser
+}

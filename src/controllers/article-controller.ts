@@ -1,6 +1,5 @@
 /* const Article = require('../models/articles') */
 import Article from '../models/articles'
-const auth = require('../middlewares/auth-middleware')
 
 const addArticle = async (req, res) => {
   const articleContent = await {
@@ -22,7 +21,7 @@ const addArticle = async (req, res) => {
 }
 
 const createArticle = (req, res) => {
-  res.render('create-article', { title: 'Create a new article' })
+  res.render('/article/create-article', { title: 'Create a new article' })
 }
 
 const deleteArticle = (req, res) => {
@@ -53,14 +52,14 @@ const articleDetails = (req, res) => {
   const id: string = req.params.id
   Article.findById(id)
     .then((result) => {
-      res.render('details', { article: result, title: result.title })
+      res.render('article/details', { article: result, title: result.title })
     })
     .catch((err) => {
       console.log(err)
     })
 }
 
-module.exports = {
+export {
   addArticle,
   createArticle,
   articleDetails,

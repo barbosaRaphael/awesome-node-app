@@ -2,9 +2,9 @@
 <html lang="en">
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
-  <%- include('./partials/head.ejs') %>
+  <%- include('../partials/head.ejs') %>
   <body>
-    <%- include('./partials/navbar.ejs') %>
+    <%- include('../partials/navbar.ejs') %>
     <div class="header">
       <h1 class="header-item"><%= article.title %></h1>
       <p class="header-item">
@@ -26,7 +26,7 @@
       <a class="delete" data-doc="<%= article.id %>">Delete article</a>
       <% } %> <% } %>
     </div>
-    <%- include('./partials/footer.ejs') %>
+    <%- include('../partials/footer.ejs') %>
 
     <script>
       const trash = document.querySelector('a.delete')

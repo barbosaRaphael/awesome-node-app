@@ -1,4 +1,3 @@
-/* const Article = require('../models/articles') */
 import Article from '../models/articles'
 
 const index = (req, res) => {
@@ -22,7 +21,7 @@ const notFound = (req, res) => {
   res.status(404).render('404', { title: '404 - Page not found!' })
 }
 
-module.exports = {
+export default {
   index,
   about,
   notFound,

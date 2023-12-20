@@ -1,23 +1,24 @@
 import express from 'express'
 const router = express.Router()
-const articleController = require('../controllers/article-controller')
-const {
-  isAuth,
-  attachCurrentUser,
-  attachUserLocal,
-} = require('../middlewares/auth-middleware')
+import {
+  addArticle,
+  createArticle,
+  articleDetails,
+  deleteArticle,
+} from '../controllers/article-controller'
+import {attachCurrentUser, isAuth} from '../middlewares/auth-middleware'
 
-router.post('/add-article', attachCurrentUser, articleController.addArticle)
+router.post('/add-article', attachCurrentUser, addArticle)
 
-router.get('/create-article', isAuth, articleController.createArticle)
+router.get('/create-article', isAuth, createArticle)
 
-router.get('/:id', articleController.articleDetails)
+router.get('/:id', articleDetails)
 
 router.delete(
   '/:id',
   isAuth,
   attachCurrentUser,
-  articleController.deleteArticle
+  deleteArticle
 )
 
-module.exports = router
+export default router
