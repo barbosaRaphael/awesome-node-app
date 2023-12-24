@@ -1,5 +1,4 @@
-/* const Article = require('../models/articles') */
-import Article from '../models/articles'
+import Article from '../models/article'
 
 const addArticle = async (req, res) => {
   const articleContent = await {
@@ -21,7 +20,7 @@ const addArticle = async (req, res) => {
 }
 
 const createArticle = (req, res) => {
-  res.render('/article/create-article', { title: 'Create a new article' })
+  res.render('article/create-article', { title: 'Create a new article' })
 }
 
 const deleteArticle = (req, res) => {
@@ -30,7 +29,6 @@ const deleteArticle = (req, res) => {
   const name = req.user.name
   Article.findById(id)
     .then((article) => {
-      console.log(article.author, name)
       if (article.author === name) {
         Article.findByIdAndDelete(id)
           .then((result) => {

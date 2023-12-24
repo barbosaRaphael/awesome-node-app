@@ -32,7 +32,7 @@
       const trash = document.querySelector('a.delete')
       if (trash) {
         trash.addEventListener('click', (e) => {
-          const endpoint = `/articles/${trash.dataset.doc}`
+          const endpoint = `/article/${trash.dataset.doc}`
 
           fetch(endpoint, {
             method: 'DELETE',

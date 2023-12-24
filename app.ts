@@ -1,10 +1,13 @@
 import express from 'express'
+import path from 'path'
 
 // Middleware
+import favicon from 'serve-favicon'
 const mongoose = require('mongoose')
 require('dotenv').config()
 import cookieParser from 'cookie-parser'
 import {attachUserLocal} from './src/middlewares/auth-middleware'
+import environmentCheck from './src/middlewares/environment-check'
 
 // Routes
 import arRoutes from './src/routes/article-routes'
@@ -37,13 +40,14 @@ mongoose
 app.set('view engine', 'ejs')
 app.set('views', 'src/views')
 
+app.use(favicon(path.join(__dirname, '/', '/favicon.ico')))
 app.use(express.static(__dirname + '/src/public'))
 
 //  Middleware
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(cookieParser())
-app.get('*', attachUserLocal)
+app.get('*', attachUserLocal, environmentCheck)
 
 //  Routes
 app.get('/', appController.index)

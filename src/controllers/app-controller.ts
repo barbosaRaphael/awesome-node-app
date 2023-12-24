@@ -1,4 +1,4 @@
-import Article from '../models/articles'
+import Article from '../models/article'
 
 const index = (req, res) => {
   Article.find()

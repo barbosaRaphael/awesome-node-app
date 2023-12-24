@@ -3,3 +3,11 @@
     <h3>2023 Copyright &copy; all rights reserved</h3>
   </div>
 </div>
+
+<!-- Make sure to remove this script before deploying on your own host -->
+
+<% if (environment.instance) { %>
+  <% if (environment.instance === 'prod') { %>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6cc9ffebd8284ac18c5fcfab7ef24059"}'></script><!-- End Cloudflare Web Analytics -->
+  <% } %>
+<% } %>
