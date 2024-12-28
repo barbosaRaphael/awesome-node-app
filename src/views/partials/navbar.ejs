@@ -1,14 +1,14 @@
 <div class="navbar">
-  <img id="logo-image" src="/media/logo.png" alt="logo" width="50px" />
-  <a class="logo" href="/">LATTE JOURNAL</a>
+  <div class="nav-item-wrapper">
+  <a class="navbar-item" href="/">Home</a>
   <a class="navbar-item" href="/about">About</a>
-
   <% if (!user) { %>
-  <a class="navbar-item" href="/auth/signup">Sign up</a>
-  <a class="navbar-item" href="/auth/login">Log in</a>
-  <% } else { %>
-  <a class="navbar-item" href="/article/create-article">Create new article</a>
-  <h3 class="navbar-item-inactive">Welcome, <%= user.name %></h3>
-  <a class="navbar-item" href="/auth/logout">Log out</a>
-  <% } %>
+    <a class="navbar-item" href="/auth/signup">Sign up</a>
+    <a class="navbar-item" href="/auth/login">Log in</a>
+    <% } else { %>
+    <a class="navbar-item" href="/article/create-article">Create new article</a>
+    <a class="navbar-item-inactive">Welcome, <%= user.name %></a>
+    <a class="navbar-item" href="/auth/logout">Log out</a>
+    <% } %>
+  </div>
 </div>

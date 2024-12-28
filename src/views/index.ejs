@@ -3,11 +3,15 @@
   <%- include('./partials/head.ejs') %>
   <body>
     <%- include('./partials/navbar.ejs') %>
-    <div class="header">
-      <h1 class="header-item">Take a sip...</h1>
-      <h2 class="header-item">...and start coding</h2>
-    </div>
-    <div class="content">
+    <header class="header hero">
+      <div class="logo-box">
+        <a class="logo" href="/">COFFE<br/>PERK</a>
+      </div>
+      <div class="hero-img-wrapper">
+        <img class="hero-img" src="<%= hero %>" alt="coffe">
+      </div>
+    </header>
+    <main class="content">
       <div class="articles">
         <% if (articles.length > 0){ %> <% articles.forEach((article) =>{%>
         <div class="article">
@@ -21,7 +25,7 @@
 
         <% } %>
       </div>
-    </div>
+    </main>
     <%- include('./partials/footer.ejs') %>
   </body>
 </html>

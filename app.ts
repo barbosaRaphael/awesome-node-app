@@ -25,7 +25,7 @@ const dbpassword: string = process.env.DB_PASSWORD
 const dbCollection: string = process.env.DB_COLLECTION
 const database: string = process.env.DB_MAIN
 const urikey: string = process.env.URI_DB_ACCESS_KEY
-const dbURI: string = `mongodb+srv://${dbLogin}:${dbpassword}@${database}.${urikey}.mongodb.net/${dbCollection}?retryWrites=true&w=majority`
+const dbURI: string = `mongodb+srv://${dbLogin}:${dbpassword}@${database}.${urikey}.mongodb.net/${dbCollection}?retryWrites=true&w=majority&appName=Latte-db`
 
 mongoose
   .connect(dbURI)

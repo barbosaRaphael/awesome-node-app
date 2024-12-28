@@ -1,21 +1,76 @@
+/* Colors and sizes*/
+:root {
+  --color-dominant: #57441c;
+  --color-highlight: #ff8b5d;
+  --color-highlight-logo: #d7a319;
+  --color-light-1: #fff9f0;
+
+  --max-content-width: 1280px;
+}
+
+/* Debug */
+
+/* * {
+   outline: solid 1px gray;
+} */
+
+/* Fonts */
+
+.alfa-slab one-regular {
+  font-family: "Alfa Slab One", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: #f0dbaf;
-  color: #57441c;
+  font-family: Arial, sans-serif;
+  background-color: var(--color-light-1);
+  color: var(--color-dominant);
   margin: 0%;
   min-height: 100vh;
   position: relative;
-  padding: 0px;
+  margin-left: 8%;
+  margin-right: 8%;
   padding-bottom: 300px;
   font-weight: lighter;
 }
 
-.header {
+header {
   flex-direction: column;
   align-items: flex-start;
   margin: auto;
   margin-bottom: 150px;
   max-width: 1280px;
+}
+
+/* Hero Section */
+
+.hero {
+  height: 600px;
+}
+
+.hero-img {
+  position: absolute;
+  width: 120dvw;
+  margin-left: -10dvw;
+  opacity: 0.7;
+  transition: all 2.5s 0.3s;  
+}
+
+.hero-img:hover {
+  margin-left: 0;
+  width: 100dvw;
+  opacity: 1;
+}
+
+.hero-img-wrapper {
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin-left: -10%;
+  height: 95dvh;
+  width: 100dvw;
 }
 
 .header-item {
@@ -30,6 +85,8 @@ body {
   align-items: center;
   line-height: 2;
 }
+
+/* Articles */
 
 .article {
   border-bottom: 1px solid #57441c;
@@ -53,26 +110,43 @@ body {
   transition: border-bottom 0.1s;
 }
 
+/* Navbar */
+
 .navbar {
+  background-color: var(--color-light-1);
+
+  position: inherit;
+  z-index: 99;
+
+  width: 100dvw;
+  height: 40px;
+  
+
   display: flex;
-  flex-direction: column;
-  height: 300px;
-  align-items: center;
+  flex-direction: row;
+  align-items: start;
+  justify-content: start;
+  
+  
+}
+
+.nav-item-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
   justify-content: start;
 }
 
 .navbar-item {
   text-decoration: none;
   font-size: 1rem;
-  color: #8f6d24;
-  border-bottom: 10px solid transparent;
+  color: var(--color-dominant);
   transition: all 0.1s ease-in-out;
 }
 
 .navbar-item:hover {
-  color: #dba737;
-  transition: color 0.2s;
-  border-bottom: 10px solid #dba737;
+  color: var(--color-highlight);
+  
 }
 
 .navbar-item-inactive {
@@ -80,13 +154,12 @@ body {
   margin-right: 10px;
   text-decoration: none;
   font-size: 1rem;
-  color: #8f6d24;
-  border-bottom: 10px solid transparent;
+  color: #D9D2D0;
 }
 
 .logo {
   font-size: 1.5rem;
-  font-family: 'Pacifico', cursive;
+  font-family: "Alfa Slab One", Serif;
   margin-left: 20px;
   margin-right: 10px;
   text-decoration: none;
@@ -96,13 +169,12 @@ body {
 }
 
 .logo:hover {
-  color: #dba737;
+  color: var(--color-highlight-logo);
   transition: color 0.2s;
 }
 
 .footer {
-  background-color: #57441c;
-  color: #f0dbaf;
+  color: #57441c;
   position: absolute;
   bottom: 0;
   flex-direction: column;
@@ -214,18 +286,17 @@ label {
   .navbar {
     display: flex;
     flex-direction: row;
-    height: 100px;
-    align-items: center;
+    height: 40px;
+    align-items: start;
     justify-content: start;
   }
 
   .navbar-item {
+    
     margin-left: 20px;
     margin-right: 10px;
     text-decoration: none;
     font-size: 1.5rem;
-    color: #8f6d24;
-    border-bottom: 10px solid transparent;
     transition: all 0.1s ease-in-out;
   }
 
@@ -234,17 +305,24 @@ label {
     margin-right: 10px;
     font-size: 1.5rem;
     text-decoration: none;
-    color: #8f6d24;
-    border-bottom: 10px solid transparent;
+  }
+
+  .logo-box{
+    position: absolute;
+    z-index: 99;
+    width: 350px;
+    height: 250px;
   }
 
   .logo {
-    font-size: 2.5rem;
-    font-family: 'Pacifico', cursive;
+    font-size: 6rem;
+    font-family: "Alfa Slab One", Serif;
+    text-shadow: #0D0D0D 15px 5px;
     margin-left: 20px;
     margin-right: 10px;
     text-decoration: none;
-    color: #8f6d24;
+    text-align: left;
+    color: #D9D2D0;
     border-bottom: 10px solid transparent;
     transition: all 0.1s ease-in-out;
   }

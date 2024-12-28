@@ -1,5 +1,3 @@
-![enter image description here](https://sea-lion-app-32qt6.ondigitalocean.app/media/logo.png)
-
 # Latte Journal Node App
 
 ### A simple and versatile blog style app for backend development study and experimentation.
